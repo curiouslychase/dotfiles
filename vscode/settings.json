@@ -274,5 +274,10 @@
     "scminput": false
   },
   "editor.largeFileOptimizations": false,
-  "editor.accessibilitySupport": "off"
+  "editor.accessibilitySupport": "off",
+  "cursor.cpp.disabledLanguages": [
+    "plaintext",
+    "markdown",
+    "scminput"
+  ]
 }

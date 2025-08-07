@@ -1,7 +1,4 @@
-tap "homebrew/cask-fonts"
-tap "supabase/tap"
 
-brew "supabase"
 
 brew "antidote" # zsh plugin manager
 brew "caddy"
@@ -22,15 +19,12 @@ brew "python"
 brew "pipx"
 brew "flyctl"
 
-cask "arc"
 cask "cleanshot"
 cask "1password"
 cask "raycast"
-cask "around"
 cask "discord"
 cask "docker"
 cask "firefox"
-cask "font-fira-code"
 cask "google-chrome"
 cask "karabiner-elements"
 cask "keybase"
@@ -39,13 +33,15 @@ cask "ngrok"
 cask "notion"
 cask "postman"
 cask "readdle-spark"
-cask "rocket" # emoji quick picker
 cask "slack"
 cask "screenflow"
 cask "spotify"
 cask "vanilla" # hide mac menu bar
-cask "visual-studio-code"
 cask "mongodb-compass"
 cask "obsidian"
 cask "cursor"
 cask "warp"
+cask "lm-studio"
+
+tap "supabase/tap"
+brew "supabase"
