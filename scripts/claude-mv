@@ -1,0 +1,78 @@
+#!/bin/bash
+set -e
+
+# Usage: claude-mv <old_directory> <new_directory>
+
+if [ $# -ne 2 ]; then
+    echo "Usage: claude-mv <old_directory> <new_directory>"
+    echo "Example: claude-mv ~/old-project ~/new-project"
+    exit 1
+fi
+
+OLD_DIR="$1"
+NEW_DIR="$2"
+
+# Resolve old directory to absolute path
+OLD_ABS=$(cd "$OLD_DIR" 2>/dev/null && pwd || echo "")
+
+if [ -z "$OLD_ABS" ]; then
+    echo "Error: Old directory does not exist: $OLD_DIR"
+    exit 1
+fi
+
+# Check if new directory already exists
+if [ -e "$NEW_DIR" ]; then
+    echo "Error: New directory already exists: $NEW_DIR"
+    exit 1
+fi
+
+# Move the actual directory
+echo "Moving directory:"
+echo "  $OLD_ABS"
+echo "  → $NEW_DIR"
+mv "$OLD_ABS" "$NEW_DIR"
+
+# Resolve new directory to absolute path
+NEW_ABS=$(cd "$NEW_DIR" 2>/dev/null && pwd)
+
+# Convert paths to Claude's format (replace / with -)
+OLD_ENCODED=$(echo "$OLD_ABS" | sed 's/\//-/g')
+NEW_ENCODED=$(echo "$NEW_ABS" | sed 's/\//-/g')
+
+echo "Moving Claude context from:"
+echo "  $OLD_ABS"
+echo "  → $NEW_ABS"
+echo ""
+
+CLAUDE_DIR="$HOME/.claude"
+MOVED=0
+
+# Rename in each location if exists
+for subdir in projects file-history todos shell-snapshots debug; do
+    OLD_PATH="$CLAUDE_DIR/$subdir/$OLD_ENCODED"
+    NEW_PATH="$CLAUDE_DIR/$subdir/$NEW_ENCODED"
+
+    if [ -d "$OLD_PATH" ] || [ -f "$OLD_PATH" ]; then
+        echo "Moving $subdir/$OLD_ENCODED → $subdir/$NEW_ENCODED"
+        mv "$OLD_PATH" "$NEW_PATH"
+        MOVED=$((MOVED + 1))
+    fi
+done
+
+if [ $MOVED -eq 0 ]; then
+    echo "No Claude context found for $OLD_ABS"
+    echo "Nothing to move."
+else
+    echo ""
+    echo "✓ Successfully moved $MOVED context location(s)"
+fi
+
+# Update history.jsonl to reference new path
+HISTORY_FILE="$CLAUDE_DIR/history.jsonl"
+if [ -f "$HISTORY_FILE" ]; then
+    echo ""
+    echo "Updating history.jsonl references..."
+    cp "$HISTORY_FILE" "$HISTORY_FILE.backup"
+    sed -i '' "s|$OLD_ABS|$NEW_ABS|g" "$HISTORY_FILE"
+    echo "✓ Updated history.jsonl (backup: history.jsonl.backup)"
+fi
