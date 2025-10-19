@@ -64,7 +64,8 @@
 # git config --global --includes user.email
 
 [user]
-    name = Chase Adams
+	name = Chase Adams
+	email = sub+github@crca.fyi
 [commit]
     gpgsign = false
 [gpg]
@@ -75,5 +76,6 @@
 
 [includeIf "gitdir:~/src/github.com/murmurlabs/**"]
     path = ~/.gitconfig.murmurlabs.local
+
 [init]
 	defaultBranch = main

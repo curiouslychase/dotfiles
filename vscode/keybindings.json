@@ -24,5 +24,13 @@
     "key": "ctrl+r",
     "command": "-extension.vim_ctrl+r",
     "when": "editorTextFocus && vim.active && vim.use<C-r> && !inDebugRepl"
-  }
+},
+{
+    "key": "shift+enter",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+        "text": "\\\r\n"
+    },
+    "when": "terminalFocus"
+}
 ]

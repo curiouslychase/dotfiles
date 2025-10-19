@@ -5,6 +5,8 @@ if [[ -a ~/.localrc ]]; then
     source ~/.localrc
 fi
 
+NX_TUI=false
+
 HISTSIZE=10000
 SAVEHIST=10000
 
@@ -19,7 +21,9 @@ PATH=$GOPATH/bin:$PATH
 PATH=/usr/local/sbin:$PATH
 PATH=/usr/local/bin:$PATH
 PATH=$DOTFILES_PATH/bin:$PATH
+PATH=$DOTFILES_PATH/scripts:$PATH
 PATH=$HOME/Library/Python/3.8/bin:$PATH
+PATH=/Applications/Docker.app/Contents/Resources/bin:$PATH
 export PATH
 
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -59,6 +63,8 @@ alias gogh="cd $GH_PATH"
 alias goglca="cd $GL_PATH/chaseadamsio"
 alias goghca="cd $GH_PATH/chaseadamsio"
 alias goghcc="cd $GH_PATH/curiouslychase"
+alias gop="cd $GH_PATH/murmurlabs/plumb"
+alias gosto="cd $GH_PATH/stomatiq"
 
 # bind emacs to 24 bit TERM if available
 alias emacs="TERM=xterm-24bit emacs -nw"
@@ -79,8 +85,7 @@ function mkd () {
     mkdir -p "$@" && cd "$@"
 }
 
-
-source $HOMEBREW_PREFIX/opt/antidote/share/antidote/antidote.zsh
+source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
 antidote load ${DOTFILES_PATH}/zsh/zsh_plugins.txt
 
 # bun completions
@@ -96,3 +101,8 @@ alias python=python3
 
 # Created by `pipx` on 2024-03-19 14:33:12
 export PATH="$PATH:/Users/chaseadams/.local/bin"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/chaseadams/.lmstudio/bin"
+# End of LM Studio CLI section
+

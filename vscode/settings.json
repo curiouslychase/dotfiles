@@ -53,8 +53,6 @@
   ],
   "window.autoDetectColorScheme": true,
   "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
-  // "workbench.preferredLightColorTheme": "Quiet Light",
-  "workbench.preferredLightColorTheme": "Catppuccin Latte",
   "files.associations": {
     ".css": "postcss",
     "Brewfile": "ruby",
@@ -275,9 +273,18 @@
   },
   "editor.largeFileOptimizations": false,
   "editor.accessibilitySupport": "off",
-  "cursor.cpp.disabledLanguages": [
-    "plaintext",
-    "markdown",
-    "scminput"
-  ]
+  "cursor.cpp.disabledLanguages": ["plaintext", "markdown", "scminput"],
+  "gitlens.views.repositories.showStashes": true,
+  "gitlens.views.commits.showStashes": true,
+  "gitlens.views.repositories.branches.showStashes": true,
+  "gitlens.views.branches.showStashes": true,
+  "gitlens.views.worktrees.showStashes": true,
+  "gitlens.views.workspaces.branches.showStashes": true,
+  "gitlens.views.stashes.files.layout": "list",
+  "gitlens.views.workspaces.showStashes": true,
+  "makefile.configureOnOpen": true,
+  "github.copilot.chat.showWelcome": false,
+  "workbench.panel.defaultLocation": "right",
+  "workbench.panel.opensMaximized": "never",
+  "workbench.preferredLightColorTheme": "Catppuccin Latte"
 }
