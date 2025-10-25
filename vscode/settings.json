@@ -142,6 +142,66 @@
       "args": {
         "kind": "refactor.extract.function"
       }
+    },
+    {
+      "keys": "a",
+      "name": "+AI",
+      "type": "object",
+      "bindings": []
+    },
+    {
+      "keys": "a.c",
+      "name": "Claude Code",
+      "type": "command",
+      "command": "claude-vscode.editor.open"
+    },
+    {
+      "keys": "a.o",
+      "name": "Codex",
+      "type": "command",
+      "command": "chatgpt.openSidebar"
+    },
+    {
+      "keys": "a.a",
+      "name": "Amp Agent",
+      "type": "command",
+      "command": "amp.agent.toggleVisibility"
+    },
+    {
+      "keys": "g.w",
+      "name": "+Worktrees",
+      "type": "object",
+      "bindings": []
+    },
+    {
+      "keys": "g.w.l",
+      "name": "List Worktrees",
+      "type": "command",
+      "command": "git-worktrees.openWorktree"
+    },
+    {
+      "keys": "g.w.c",
+      "name": "Create Worktree",
+      "type": "command",
+      "command": "git-worktrees.createWorktree"
+    },
+    {
+      "keys": "g.w.d",
+      "name": "Delete Worktree",
+      "type": "command",
+      "command": "git-worktrees.deleteWorktree"
+    },
+    {
+      "keys": "g.w.o",
+      "name": "Open Worktree",
+      "type": "command",
+      "command": "git-worktrees.openWorktree"
+    },
+    {
+      "keys": "g.s",
+      "name": "Source Control",
+      "type": "command",
+      "command": "workbench.view.scm"
     }
   ],
   "vim.easymotion": true,
@@ -289,5 +349,7 @@
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
   "amp.url": "https://ampcode.com/",
   "amp.tab.enabled": true,
-  "editor.wordBasedSuggestions": "off"
+  "editor.wordBasedSuggestions": "off",
+  "chat.agent.enabled": false,
+  "github.copilot.nextEditSuggestions.enabled": true
 }

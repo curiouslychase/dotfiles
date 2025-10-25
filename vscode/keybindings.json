@@ -32,5 +32,9 @@
         "text": "\\\r\n"
     },
     "when": "terminalFocus"
+},
+{
+    "key": "cmd+space",
+    "command": "whichkey.show"
 }
 ]

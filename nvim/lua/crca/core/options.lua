@@ -36,6 +36,10 @@ vim.o.completeopt = "menuone,noselect"
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+-- Enable true color support for terminals that support it
+vim.cmd("let &t_8f = '" .. string.char(27) .. "[38;2;%lu;%lu;%lum'")
+vim.cmd("let &t_8b = '" .. string.char(27) .. "[48;2;%lu;%lu;%lum'")
+
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
