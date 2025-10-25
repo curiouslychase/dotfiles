@@ -286,5 +286,8 @@
   "github.copilot.chat.showWelcome": false,
   "workbench.panel.defaultLocation": "right",
   "workbench.panel.opensMaximized": "never",
-  "workbench.preferredLightColorTheme": "Catppuccin Latte"
+  "workbench.preferredLightColorTheme": "Catppuccin Latte",
+  "amp.url": "https://ampcode.com/",
+  "amp.tab.enabled": true,
+  "editor.wordBasedSuggestions": "off"
 }

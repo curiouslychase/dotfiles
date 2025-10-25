@@ -20,6 +20,7 @@ brew "stylua"
 brew "python"
 brew "pipx"
 brew "flyctl"
+brew "cloudflared"
 
 cask "ghostty"
 cask "cleanshot"
@@ -53,6 +54,12 @@ cask "tmuxp"
 
 tap "supabase/tap"
 brew "supabase"
+
+tap "oven-sh/bun"
+brew "bun"
+
+brew "chrysalis"
+brew "yazi"
 
 cask "chatgpt"
 cask "claude"
