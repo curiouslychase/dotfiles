@@ -30,6 +30,12 @@
     "group": ""
   },
   {
+    "name": "Note Vault",
+    "rootPath": "$home/2025-vault",
+    "paths": [],
+    "group": ""
+  },
+  {
     "name": "Obsidian",
     "rootPath": "$home/vault/.obsidian",
     "paths": [],
