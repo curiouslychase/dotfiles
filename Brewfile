@@ -21,6 +21,7 @@ brew "rust"
 brew "screenfetch"
 brew "stylua"
 brew "tmux"
+brew "tpm" # tmux plugin manager
 brew "tmuxp"
 brew "tree"
 brew "volta"
