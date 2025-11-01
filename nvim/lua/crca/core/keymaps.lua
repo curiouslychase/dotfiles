@@ -72,10 +72,11 @@ wk.register({
     f = { "<cmd>tabnew %<CR>", "new tab" },
   },
   w = {
-    -- window
-    name = "[w]indow",
-    v = { "<cmd>vsplit<CR>", "vertical split" },
-    s = { "<cmd>split<CR>", "horizontal split" },
+  -- window
+  name = "[w]indow",
+  v = { "<cmd>vsplit<CR>", "vertical split" },
+  s = { "<cmd>split<CR>", "horizontal split" },
+    S = { "<cmd>Telescope windows<CR>", "switch window" },
   },
   n = {
     -- nvim tree
