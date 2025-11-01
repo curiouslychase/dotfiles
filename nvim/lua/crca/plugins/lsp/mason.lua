@@ -61,6 +61,7 @@ return {
           telemetry = { enable = false },
         },
       },
+      mdx_analyzer = {},
     }
 
     local mason_lspconfig = require("mason-lspconfig")

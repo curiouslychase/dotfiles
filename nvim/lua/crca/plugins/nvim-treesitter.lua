@@ -5,6 +5,11 @@ return {
   },
   build = ":TSUpdate",
   config = function()
+    local ok_language, language = pcall(require, "vim.treesitter.language")
+    if ok_language and language.register then
+      language.register("markdown", "mdx")
+    end
+
     -- [[ Configure Treesitter ]]
     vim.defer_fn(function()
       require("nvim-treesitter.configs").setup({
@@ -21,6 +26,8 @@ return {
           "java",
           "javascript",
           "json",
+          "markdown",
+          "markdown_inline",
           -- "lua",
           "python",
           "regex",
