@@ -57,6 +57,11 @@ alias la="ls -la ${colorflag}"
 alias lsd='ls -l ${colorflag} | grep "^d"'
 alias ls="command ls ${colorflag}"
 
+alias _vi="vi"
+alias vi="nvim"
+alias vimdiff="nvim -d"
+export EDITOR=nvim
+
 alias godot="cd $DOTFILES_PATH"
 alias gogl="cd $GL_PATH"
 alias gogh="cd $GH_PATH"
@@ -65,6 +70,7 @@ alias goghca="cd $GH_PATH/chaseadamsio"
 alias goghcc="cd $GH_PATH/curiouslychase"
 alias gop="cd $GH_PATH/murmurlabs/plumb"
 alias gosto="cd $GH_PATH/stomatiq"
+
 
 # bind emacs to 24 bit TERM if available
 alias emacs="TERM=xterm-24bit emacs -nw"
