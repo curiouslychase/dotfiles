@@ -77,5 +77,8 @@
 [includeIf "gitdir:~/src/github.com/murmurlabs/**"]
     path = ~/.gitconfig.murmurlabs.local
 
+[includeIf "gitdir:~/src/github.com/rocketmoney/**"]
+    path = ~/.gitconfig.rocketmoney.local
+
 [init]
 	defaultBranch = main
