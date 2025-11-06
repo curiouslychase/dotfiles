@@ -9,8 +9,10 @@ If you're looking at them and you're not me, feel free to use them as a guide.
 - Clone dotfiles:
 
 ```bash
-mkdir -p $HOME/src/github.com/chaseadamsio
-git clone git@github.com:chaseadamsio/dotfiles.git
+mkdir -p $HOME/src/github.com/curiouslychase
+git clone --bare git@github.com:curiouslychase/dotfiles.git dotfiles
+cd dotfiles
+git worktree add main main
 ```
 
 - Symlink files
@@ -39,6 +41,6 @@ exit 0
 chsh -s $(which zsh)
 ```
 
-## Installed by hand 
-- Homebrew 
+## Installed by hand
+- Homebrew
 - Spark App (email and calendar)

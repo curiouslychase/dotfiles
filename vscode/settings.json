@@ -1003,5 +1003,6 @@
       "action": "allow"
     }
   ],
-  "claudeCode.useTerminal": true
+  "claudeCode.useTerminal": true,
+  "gitlens.worktrees.defaultLocation": "worktrees"
 }
