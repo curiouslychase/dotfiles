@@ -153,22 +153,19 @@
       "keys": "a.c",
       "name": "Claude Code",
       "type": "command",
-      "command": "workbench.action.tasks.runTask",
-      "args": "Claude Worktree Session"
+      "command": "multiCommand.claudeWorktreeEditor"
     },
     {
       "keys": "a.o",
       "name": "Codex",
       "type": "command",
-      "command": "workbench.action.tasks.runTask",
-      "args": "Codex Worktree Session"
+      "command": "multiCommand.codexWorktreeEditor"
     },
     {
       "keys": "a.a",
       "name": "Amp Agent",
       "type": "command",
-      "command": "workbench.action.tasks.runTask",
-      "args": "Amp Worktree Session"
+      "command": "multiCommand.ampWorktreeEditor"
     },
     {
       "keys": "g.w",
@@ -1031,5 +1028,52 @@
   "accessibility.signals.terminalBell": {
     "announcement": "auto",
     "sound": "on"
-  }
+  },
+  "multiCommand.commands": [
+    {
+      "command": "multiCommand.claudeWorktreeEditor",
+      "sequence": [
+        {
+          "command": "workbench.action.tasks.runTask",
+          "args": "Claude Worktree Session"
+        },
+        {
+          "command": "workbench.action.terminal.moveToEditor"
+        },
+        {
+          "command": "workbench.action.moveEditorToNextGroup"
+        }
+      ]
+    },
+    {
+      "command": "multiCommand.ampWorktreeEditor",
+      "sequence": [
+        {
+          "command": "workbench.action.tasks.runTask",
+          "args": "Amp Worktree Session"
+        },
+        {
+          "command": "workbench.action.terminal.moveToEditor"
+        },
+        {
+          "command": "workbench.action.moveEditorToNextGroup"
+        }
+      ]
+    },
+    {
+      "command": "multiCommand.codexWorktreeEditor",
+      "sequence": [
+        {
+          "command": "workbench.action.tasks.runTask",
+          "args": "Codex Worktree Session"
+        },
+        {
+          "command": "workbench.action.terminal.moveToEditor"
+        },
+        {
+          "command": "workbench.action.moveEditorToNextGroup"
+        }
+      ]
+    }
+  ]
 }
