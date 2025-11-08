@@ -1,0 +1,5 @@
+#!/bin/bash
+# AI Sessions Manager - TUI for managing persistent tmux AI tool sessions
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+bun "$SCRIPT_DIR/ai-sessions/index.ts" "$@"

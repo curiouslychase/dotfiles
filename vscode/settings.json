@@ -168,6 +168,15 @@
       "command": "multiCommand.ampWorktreeEditor"
     },
     {
+      "keys": "a.m",
+      "name": "AI Sessions Manager",
+      "type": "command",
+      "command": "workbench.action.terminal.sendSequence",
+      "args": {
+        "text": "ai-sessions\n"
+      }
+    },
+    {
       "keys": "g.w",
       "name": "+Worktrees",
       "type": "object",

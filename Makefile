@@ -11,6 +11,8 @@ init:
 	test -d $(HOME)/.config/yazi || mkdir -p $(HOME)/.config/yazi
 	test -L $(HOME)/.config/yazi/yazi.toml || ln -s $(PWD)/yazi.toml $(HOME)/.config/yazi/yazi.toml
 	test -L $(HOME)/.hammerspoon || ln -s $(PWD)/hammerspoon $(HOME)/.hammerspoon
+	test -d $(HOME)/.local/bin || mkdir -p $(HOME)/.local/bin
+	test -L $(HOME)/.local/bin/ai-sessions || ln -s $(PWD)/scripts/ai-sessions-manager $(HOME)/.local/bin/ai-sessions
 	test -L $(CURSORSCFGDIR)/settings.json || ln -s $(PWD)/vscode/settings.json $(CURSORSCFGDIR)/settings.json
 	test -L $(CURSORSCFGDIR)/keybindings.json || ln -s $(PWD)/vscode/keybindings.json $(CURSORSCFGDIR)/keybindings.json
 	test -L $(CURSORSCFGDIR)/projects.json || ln -s $(PWD)/vscode/projects.json $(CURSORSCFGDIR)/projects.json
@@ -33,6 +35,7 @@ clone:
 clean:
 	rm -rf $(HOME)/.zshrc
 	rm -rf $(HOME)/.hammerspoon
+	rm -rf $(HOME)/.local/bin/ai-sessions
 	rm -rf $(CURSORSCFGDIR)/projects.json $(CURSORSCFGDIR)/keybindings.json $(CURSORSCFGDIR)/settings.json $(CURSORSCFGDIR)/tasks.json $(CURSORSCFGDIR)/extensions.json $(CURSORSCFGDIR)/snippets
 	rm -rf $(VSCODECFGDIR)/projects.json $(VSCODECFGDIR)/keybindings.json $(VSCODECFGDIR)/settings.json $(VSCODECFGDIR)/tasks.json $(VSCODECFGDIR)/extensions.json $(VSCODECFGDIR)/snippets
 	rm -rf $(HOME)/.ssh/config_common
