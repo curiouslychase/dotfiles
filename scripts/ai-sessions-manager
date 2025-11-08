@@ -1,5 +1,7 @@
 #!/bin/bash
 # AI Sessions Manager - TUI for managing persistent tmux AI tool sessions
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Resolve the real path of this script (follow symlinks)
+SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}" 2>/dev/null || realpath "${BASH_SOURCE[0]}" 2>/dev/null || echo "${BASH_SOURCE[0]}")"
+SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
 bun "$SCRIPT_DIR/ai-sessions/index.ts" "$@"
