@@ -1,0 +1,45 @@
+#!/bin/bash
+# Creates/switches to AI worktree in dedicated tmux window
+# Usage: ai-worktree-tmux <ai-tool> <branch-suffix>
+
+set -e
+
+AI_TOOL="$1"
+BRANCH_SUFFIX="$2"
+SESSION_NAME="worktrees"
+SCRIPT_DIR="$(dirname "$(realpath "$0")")"
+
+# Validate inputs
+if [ -z "$AI_TOOL" ] || [ -z "$BRANCH_SUFFIX" ]; then
+    echo "Usage: ai-worktree-tmux <ai-tool> <branch-suffix>" >&2
+    exit 1
+fi
+
+# Create/get worktree path
+WORKTREE_PATH=$("$SCRIPT_DIR/create-ai-worktree" "$AI_TOOL" "$BRANCH_SUFFIX")
+BRANCH_NAME=$(basename "$WORKTREE_PATH")
+WINDOW_NAME="$BRANCH_NAME"
+
+# Ensure tmux session exists (detached)
+if ! tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+    echo "Creating tmux session: $SESSION_NAME" >&2
+    tmux new-session -d -s "$SESSION_NAME" -n "main" -c "$HOME"
+fi
+
+# Check if window already exists
+EXISTING_WINDOW=$(tmux list-windows -t "$SESSION_NAME" -F '#{window_name}' 2>/dev/null | grep -x "$WINDOW_NAME" || true)
+
+if [ -n "$EXISTING_WINDOW" ]; then
+    echo "Switching to existing tmux window: $WINDOW_NAME" >&2
+    tmux select-window -t "${SESSION_NAME}:${WINDOW_NAME}"
+else
+    echo "Creating tmux window: $WINDOW_NAME" >&2
+    tmux new-window -t "$SESSION_NAME" -n "$WINDOW_NAME" -c "$WORKTREE_PATH"
+
+    # Launch AI tool in new window
+    echo "Launching $AI_TOOL in tmux window" >&2
+    tmux send-keys -t "${SESSION_NAME}:${WINDOW_NAME}" "$AI_TOOL" C-m
+fi
+
+# Output session name for terminal to attach
+echo "${SESSION_NAME}"

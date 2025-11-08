@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    "vscodevim.vim",
+    "vspacecode.whichkey",
+    "esbenp.prettier-vscode",
+    "catppuccin.catppuccin-vsc",
+    "wayou.vscode-todo-highlight",
+    "eamodio.gitlens",
+    "github.copilot",
+    "alefragnani.project-manager",
+    "raynigon.nginx-formatter",
+    "astro-build.astro-vscode",
+    "redhat.vscode-yaml",
+    "ms-vscode.makefile-tools",
+    "ryuta46.multi-command"
+  ]
+}

@@ -1,0 +1,45 @@
+#!/bin/bash
+# Creates a timestamped git worktree for AI tool sessions
+# Usage: create-ai-worktree <ai-tool> <branch-suffix>
+# Returns: worktree path on success, exits with error on failure
+
+set -e
+
+AI_TOOL="$1"
+BRANCH_SUFFIX="$2"
+
+# Validate inputs
+if [ -z "$AI_TOOL" ] || [ -z "$BRANCH_SUFFIX" ]; then
+    echo "Usage: create-ai-worktree <ai-tool> <branch-suffix>" >&2
+    exit 1
+fi
+
+# Validate bare repo
+if [ "$(git rev-parse --is-bare-repository 2>/dev/null)" != "true" ]; then
+    echo "Error: Only works in bare repositories" >&2
+    exit 1
+fi
+
+# Slugify branch suffix: lowercase, spaces to hyphens, remove special chars
+SLUGIFIED=$(echo "$BRANCH_SUFFIX" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-//;s/-$//')
+
+REPO_ROOT="$(git rev-parse --git-dir)"
+DATE=$(date +%Y-%m-%d)
+BRANCH_NAME="${AI_TOOL}-${DATE}-${SLUGIFIED}"
+WORKTREE_PATH="${REPO_ROOT}/worktrees/${BRANCH_NAME}"
+
+# Check if worktree already exists
+if git -C "${REPO_ROOT}" worktree list | grep -q "worktrees/${BRANCH_NAME}"; then
+    echo "Worktree already exists, opening session in: ${BRANCH_NAME}" >&2
+    # Ensure it's in the workspace
+    code --add "${WORKTREE_PATH}" >&2
+else
+    # Create new worktree
+    echo "Creating worktree: ${BRANCH_NAME}" >&2
+    git -C "${REPO_ROOT}" worktree add "worktrees/${BRANCH_NAME}" -b "${BRANCH_NAME}" >&2
+    # Add to VS Code workspace
+    code --add "${WORKTREE_PATH}" >&2
+fi
+
+# Output path for terminal to use
+echo "${WORKTREE_PATH}"

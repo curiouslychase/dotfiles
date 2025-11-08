@@ -14,9 +14,13 @@ init:
 	test -L $(CURSORSCFGDIR)/settings.json || ln -s $(PWD)/vscode/settings.json $(CURSORSCFGDIR)/settings.json
 	test -L $(CURSORSCFGDIR)/keybindings.json || ln -s $(PWD)/vscode/keybindings.json $(CURSORSCFGDIR)/keybindings.json
 	test -L $(CURSORSCFGDIR)/projects.json || ln -s $(PWD)/vscode/projects.json $(CURSORSCFGDIR)/projects.json
+	test -L $(CURSORSCFGDIR)/tasks.json || ln -s $(PWD)/vscode/tasks.json $(CURSORSCFGDIR)/tasks.json
+	test -L $(CURSORSCFGDIR)/extensions.json || ln -s $(PWD)/vscode/extensions.json $(CURSORSCFGDIR)/extensions.json
 	test -L $(VSCODECFGDIR)/settings.json || ln -s $(PWD)/vscode/settings.json $(VSCODECFGDIR)/settings.json
 	test -L $(VSCODECFGDIR)/keybindings.json || ln -s $(PWD)/vscode/keybindings.json $(VSCODECFGDIR)/keybindings.json
 	test -L $(VSCODECFGDIR)/projects.json || ln -s $(PWD)/vscode/projects.json $(VSCODECFGDIR)/projects.json
+	test -L $(VSCODECFGDIR)/tasks.json || ln -s $(PWD)/vscode/tasks.json $(VSCODECFGDIR)/tasks.json
+	test -L $(VSCODECFGDIR)/extensions.json || ln -s $(PWD)/vscode/extensions.json $(VSCODECFGDIR)/extensions.json
 	test -L $(HOME)/.ssh/config_common || ln -s $(PWD)/ssh/config_common $(HOME)/.ssh/config_common
 	test -L $(HOME)/.gitconfig || ln -s $(PWD)/gitconfig $(HOME)/.gitconfig
 	test -L $(HOME)/.emacs.d || ln -s $(PWD)/emacs.d $(HOME)/.emacs.d
@@ -29,8 +33,8 @@ clone:
 clean:
 	rm -rf $(HOME)/.zshrc
 	rm -rf $(HOME)/.hammerspoon
-	rm -rf $(CURSORSCFGDIR)/projects.json $(CURSORSCFGDIR)/keybindings.json $(CURSORSCFGDIR)/settings.json $(CURSORSCFGDIR)/snippets
-	rm -rf $(VSCODECFGDIR)/projects.json $(VSCODECFGDIR)/keybindings.json $(VSCODECFGDIR)/settings.json $(VSCODECFGDIR)/snippets
+	rm -rf $(CURSORSCFGDIR)/projects.json $(CURSORSCFGDIR)/keybindings.json $(CURSORSCFGDIR)/settings.json $(CURSORSCFGDIR)/tasks.json $(CURSORSCFGDIR)/extensions.json $(CURSORSCFGDIR)/snippets
+	rm -rf $(VSCODECFGDIR)/projects.json $(VSCODECFGDIR)/keybindings.json $(VSCODECFGDIR)/settings.json $(VSCODECFGDIR)/tasks.json $(VSCODECFGDIR)/extensions.json $(VSCODECFGDIR)/snippets
 	rm -rf $(HOME)/.ssh/config_common
 	rm -rf $(HOME)/.gitconfig
 	rm -rf $(HOME)/.emacs.d

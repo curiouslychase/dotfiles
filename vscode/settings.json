@@ -153,19 +153,22 @@
       "keys": "a.c",
       "name": "Claude Code",
       "type": "command",
-      "command": "claude-vscode.sidebar.open"
+      "command": "workbench.action.tasks.runTask",
+      "args": "Claude Worktree Session"
     },
     {
       "keys": "a.o",
       "name": "Codex",
       "type": "command",
-      "command": "chatgpt.openSidebar"
+      "command": "workbench.action.tasks.runTask",
+      "args": "Codex Worktree Session"
     },
     {
       "keys": "a.a",
       "name": "Amp Agent",
       "type": "command",
-      "command": "amp.agent.toggleVisibility"
+      "command": "workbench.action.tasks.runTask",
+      "args": "Amp Worktree Session"
     },
     {
       "keys": "g.w",
@@ -318,6 +321,18 @@
     "pwsh": {
       "path": "pwsh",
       "icon": "terminal-powershell"
+    },
+    "claude": {
+      "path": "claude",
+      "icon": "robot"
+    },
+    "amp": {
+      "path": "amp",
+      "icon": "zap"
+    },
+    "codex": {
+      "path": "codex",
+      "icon": "code"
     }
   },
   "security.workspace.trust.untrustedFiles": "open",
@@ -1011,5 +1026,10 @@
   ],
   "claudeCode.useTerminal": true,
   "gitlens.worktrees.defaultLocation": "worktrees",
-  "terminal.integrated.tabs.location": "left"
+  "terminal.integrated.tabs.location": "left",
+  "terminal.integrated.enableVisualBell": true,
+  "accessibility.signals.terminalBell": {
+    "announcement": "auto",
+    "sound": "on"
+  }
 }

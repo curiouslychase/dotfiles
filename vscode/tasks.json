@@ -1,0 +1,106 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "New Claude Terminal",
+      "command": "echo '\\033]0;${input:claudeName}\\007' && claude",
+      "type": "shell",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "New Amp Terminal",
+      "command": "echo '\\033]0;${input:ampName}\\007' && amp",
+      "type": "shell",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "New Codex Terminal",
+      "command": "echo '\\033]0;${input:codexName}\\007' && codex",
+      "type": "shell",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Claude Worktree Session",
+      "command": "${workspaceFolder}/main/scripts/ai-worktree-tmux claude '${input:branchSuffix}' && tmux attach-session -t worktrees",
+      "type": "shell",
+      "presentation": {
+        "echo": false,
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      },
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Amp Worktree Session",
+      "command": "${workspaceFolder}/main/scripts/ai-worktree-tmux amp '${input:branchSuffix}' && tmux attach-session -t worktrees",
+      "type": "shell",
+      "presentation": {
+        "echo": false,
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      },
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Codex Worktree Session",
+      "command": "${workspaceFolder}/main/scripts/ai-worktree-tmux codex '${input:branchSuffix}' && tmux attach-session -t worktrees",
+      "type": "shell",
+      "presentation": {
+        "echo": false,
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      },
+      "isBackground": true,
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "claudeName",
+      "type": "promptString",
+      "description": "Claude terminal name",
+      "default": "claude"
+    },
+    {
+      "id": "ampName",
+      "type": "promptString",
+      "description": "Amp terminal name",
+      "default": "amp"
+    },
+    {
+      "id": "codexName",
+      "type": "promptString",
+      "description": "Codex terminal name",
+      "default": "codex"
+    },
+    {
+      "id": "branchSuffix",
+      "type": "promptString",
+      "description": "Branch name suffix (will be prefixed with tool-YYYY-MM-DD-)",
+      "default": "feature"
+    }
+  ]
+}
