@@ -208,6 +208,12 @@
       "name": "Switch Window",
       "type": "command",
       "command": "workbench.action.switchWindow"
+    },
+    {
+      "keys": "e",
+      "name": "Files Explorer",
+      "type": "command",
+      "command": "workbench.files.action.focusFilesExplorer"
     }
   ],
   "vim.easymotion": true,
@@ -1004,5 +1010,6 @@
     }
   ],
   "claudeCode.useTerminal": true,
-  "gitlens.worktrees.defaultLocation": "worktrees"
+  "gitlens.worktrees.defaultLocation": "worktrees",
+  "terminal.integrated.tabs.location": "left"
 }
