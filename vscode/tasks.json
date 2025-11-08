@@ -33,45 +33,57 @@
     },
     {
       "label": "Claude Worktree Session",
-      "command": "${workspaceFolder}/main/scripts/ai-worktree-tmux claude '${input:branchSuffix}' && tmux attach-session -t worktrees",
+      "command": "WORKTREE=$(${workspaceFolder}/main/scripts/create-ai-worktree claude '${input:branchSuffix}') && cd \"$WORKTREE\" && echo -e \"\\033]0;$(basename $WORKTREE)\\007\" && claude",
       "type": "shell",
       "presentation": {
         "echo": false,
         "reveal": "always",
         "focus": true,
-        "panel": "shared",
+        "panel": "dedicated",
         "showReuseMessage": false,
-        "clear": true
+        "clear": false
+      },
+      "runOptions": {
+        "instanceLimit": 100,
+        "reevaluateOnRerun": true
       },
       "isBackground": true,
       "problemMatcher": []
     },
     {
       "label": "Amp Worktree Session",
-      "command": "${workspaceFolder}/main/scripts/ai-worktree-tmux amp '${input:branchSuffix}' && tmux attach-session -t worktrees",
+      "command": "WORKTREE=$(${workspaceFolder}/main/scripts/create-ai-worktree amp '${input:branchSuffix}') && cd \"$WORKTREE\" && echo -e \"\\033]0;$(basename $WORKTREE)\\007\" && amp",
       "type": "shell",
       "presentation": {
         "echo": false,
         "reveal": "always",
         "focus": true,
-        "panel": "shared",
+        "panel": "dedicated",
         "showReuseMessage": false,
-        "clear": true
+        "clear": false
+      },
+      "runOptions": {
+        "instanceLimit": 100,
+        "reevaluateOnRerun": true
       },
       "isBackground": true,
       "problemMatcher": []
     },
     {
       "label": "Codex Worktree Session",
-      "command": "${workspaceFolder}/main/scripts/ai-worktree-tmux codex '${input:branchSuffix}' && tmux attach-session -t worktrees",
+      "command": "WORKTREE=$(${workspaceFolder}/main/scripts/create-ai-worktree codex '${input:branchSuffix}') && cd \"$WORKTREE\" && echo -e \"\\033]0;$(basename $WORKTREE)\\007\" && codex",
       "type": "shell",
       "presentation": {
         "echo": false,
         "reveal": "always",
         "focus": true,
-        "panel": "shared",
+        "panel": "dedicated",
         "showReuseMessage": false,
-        "clear": true
+        "clear": false
+      },
+      "runOptions": {
+        "instanceLimit": 100,
+        "reevaluateOnRerun": true
       },
       "isBackground": true,
       "problemMatcher": []
