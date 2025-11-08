@@ -6,6 +6,10 @@
     "when": "terminalFocus"
   },
   {
+    "command": "workbench.files.action.focusFilesExplorer",
+    "key": "cmd+e"
+  },
+  {
     "key": "ctrl+`",
     "command": "workbench.action.terminal.focus",
     "when": "!terminalFocus"
@@ -24,17 +28,17 @@
     "key": "ctrl+r",
     "command": "-extension.vim_ctrl+r",
     "when": "editorTextFocus && vim.active && vim.use<C-r> && !inDebugRepl"
-},
-{
+  },
+  {
     "key": "shift+enter",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-        "text": "\\\r\n"
+      "text": "\\\r\n"
     },
     "when": "terminalFocus"
-},
-{
+  },
+  {
     "key": "cmd+space",
     "command": "whichkey.show"
-}
+  }
 ]
