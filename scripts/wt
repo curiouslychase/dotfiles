@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Usage: wt <git-url> [clone-path] [worktree-branch]
+# Example: wt git@github.com:user/repo.git ~/src/github.com/user main
+# Example: wt https://github.com/user/repo.git (uses current dir)
+
+set -e
+
+if [ -z "$1" ]; then
+    echo "Usage: wt <git-url> [clone-path] [worktree-branch]"
+    echo "Example: wt git@github.com:user/repo.git ~/src/github.com/user main"
+    exit 1
+fi
+
+GIT_URL="$1"
+CLONE_PATH="${2:-.}"
+BRANCH="${3:-main}"
+
+# Extract repo name from git URL
+# Handles both SSH (git@github.com:user/repo.git) and HTTPS (https://github.com/user/repo.git)
+REPO_NAME=$(basename "$GIT_URL" .git)
+
+BARE_DIR="$CLONE_PATH/$REPO_NAME"
+WORKTREE_DIR="$BARE_DIR/$BRANCH"
+
+echo "Cloning $GIT_URL as bare repo to $BARE_DIR..."
+mkdir -p "$CLONE_PATH"
+git clone --bare "$GIT_URL" "$BARE_DIR"
+
+echo "Creating worktree at $WORKTREE_DIR for branch $BRANCH..."
+cd "$BARE_DIR"
+git worktree add "$BRANCH" "$BRANCH"
+
+echo "✓ Worktree setup complete"
+echo "  Bare repo: $BARE_DIR"
+echo "  Worktree:  $WORKTREE_DIR"
+echo ""
+echo "To work in the worktree:"
+echo "  cd $WORKTREE_DIR"
