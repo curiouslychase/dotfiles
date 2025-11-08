@@ -1038,10 +1038,16 @@
           "args": "Claude Worktree Session"
         },
         {
+          "command": "workbench.action.terminal.focus"
+        },
+        {
           "command": "workbench.action.terminal.moveToEditor"
         },
         {
           "command": "workbench.action.moveEditorToNextGroup"
+        },
+        {
+          "command": "workbench.action.focusSecondEditorGroup"
         }
       ]
     },
@@ -1053,10 +1059,16 @@
           "args": "Amp Worktree Session"
         },
         {
+          "command": "workbench.action.terminal.focus"
+        },
+        {
           "command": "workbench.action.terminal.moveToEditor"
         },
         {
           "command": "workbench.action.moveEditorToNextGroup"
+        },
+        {
+          "command": "workbench.action.focusSecondEditorGroup"
         }
       ]
     },
@@ -1068,10 +1080,16 @@
           "args": "Codex Worktree Session"
         },
         {
+          "command": "workbench.action.terminal.focus"
+        },
+        {
           "command": "workbench.action.terminal.moveToEditor"
         },
         {
           "command": "workbench.action.moveEditorToNextGroup"
+        },
+        {
+          "command": "workbench.action.focusSecondEditorGroup"
         }
       ]
     }
