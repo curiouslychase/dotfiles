@@ -4,7 +4,7 @@ CURSORSCFGDIR := $(HOME)/Library/Application\ Support/Cursor/User
 
 init:
 	test -L $(HOME)/.zshrc || ln -s $(PWD)/zsh/zshrc.zsh $(HOME)/.zshrc
-	test -L $(HOME)/.config/nvim || ln -s $(PWD)/nvim $(HOME)/.config/nvim
+	test -d $(HOME)/.config/nvim || ln -s $(PWD)/nvim $(HOME)/.config/nvim
 	test -L $(HOME)/.config/kitty || ln -s $(PWD)/kitty $(HOME)/.config/kitty
 	test -L $(HOME)/.config/ghostty || ln -s $(PWD)/ghostty $(HOME)/.config/ghostty
 	test -L $(HOME)/.tmux.conf || ln -s $(PWD)/tmux/tmux.conf $(HOME)/.tmux.conf
