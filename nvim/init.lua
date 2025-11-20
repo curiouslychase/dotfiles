@@ -190,6 +190,19 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
+-- Colemak navigation remaps (hneo instead of hjkl)
+vim.keymap.set({ 'n', 'v', 'o' }, 'n', 'j', { desc = 'Move down' })
+vim.keymap.set({ 'n', 'v', 'o' }, 'e', 'k', { desc = 'Move up' })
+vim.keymap.set({ 'n', 'v', 'o' }, 'o', 'l', { desc = 'Move right' })
+
+-- Remap original functions to freed keys
+vim.keymap.set({ 'n', 'v' }, 'j', 'n', { desc = 'Next search result' })
+vim.keymap.set({ 'n', 'v' }, 'J', 'N', { desc = 'Previous search result' })
+vim.keymap.set({ 'n', 'v' }, 'k', 'e', { desc = 'End of word' })
+vim.keymap.set({ 'n', 'v' }, 'K', 'E', { desc = 'End of WORD' })
+vim.keymap.set('n', 'l', 'o', { desc = 'Open line below' })
+vim.keymap.set('n', 'L', 'O', { desc = 'Open line above' })
+
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
@@ -197,13 +210,13 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 -- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
+--  Use CTRL+<hneo> to switch between windows (Colemak)
 --
 --  See `:help wincmd` for a list of all window commands
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set('n', '<C-n>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-e>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set('n', '<C-o>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
