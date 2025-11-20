@@ -41,7 +41,7 @@ clean:
 	rm -rf $(HOME)/.ssh/config_common
 	rm -rf $(HOME)/.gitconfig
 	rm -rf $(HOME)/.emacs.d
-	rm -rf $(HOME)/.config/nvim/lua/custom
+	rm -rf $(HOME)/.config/nvim
 	rm -rf $(HOME)/.config/kitty
 	rm -rf $(HOME)/.config/ghostty
 	rm -rf $(HOME)/.tmux.conf
