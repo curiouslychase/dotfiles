@@ -1,0 +1,5 @@
+name: play
+root: ~/
+
+windows:
+  - editor:

@@ -1,0 +1,9 @@
+# Shared layout definitions using YAML anchors
+layouts:
+  dev_layout: &dev_layout
+    layout: main-vertical
+    panes:
+      - claude
+      -
+        - nvim
+        - lazygit

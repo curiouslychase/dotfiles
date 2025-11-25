@@ -1,0 +1,13 @@
+name: curiouslychase_com
+root: ~/src/github.com/curiouslychase/curiouslychase.com
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - claude
+        - nvim
+        - lazygit
+  - server:
+      panes:
+        - npm run dev

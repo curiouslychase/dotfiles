@@ -1,0 +1,6 @@
+name: vault
+root: ~/vault
+
+
+windows:
+  - editor:
