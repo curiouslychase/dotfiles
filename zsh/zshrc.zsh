@@ -15,14 +15,12 @@ export WRK_PATH="$GOPATH/src"
 export GH_PATH="$WRK_PATH/github.com"
 export GL_PATH="$WRK_PATH/gitlab.com"
 export DOTFILES_PATH="$GH_PATH/curiouslychase/dotfiles"
-export DOTFILES_PATH_MAIN="$DOTFILES_PATH/main"
 
 PATH=/usr/local/go/bin:$PATH
 PATH=$GOPATH/bin:$PATH
 PATH=/usr/local/sbin:$PATH
 PATH=/usr/local/bin:$PATH
-PATH=$DOTFILES_PATH_MAIN/bin:$PATH
-PATH=$DOTFILES_PATH_MAIN/scripts:$PATH
+PATH=$DOTFILES_PATH/scripts:$PATH
 PATH=$HOME/Library/Python/3.8/bin:$PATH
 PATH=/Applications/Docker.app/Contents/Resources/bin:$PATH
 export PATH
@@ -63,7 +61,7 @@ alias vi="nvim"
 alias vimdiff="nvim -d"
 export EDITOR=nvim
 
-alias godot="cd $DOTFILES_PATH_MAIN"
+alias godot="cd $DOTFILES_PATH"
 alias gogl="cd $GL_PATH"
 alias gogh="cd $GH_PATH"
 alias goglca="cd $GL_PATH/chaseadamsio"
@@ -93,7 +91,7 @@ function mkd () {
 }
 
 source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
-antidote load ${DOTFILES_PATH_MAIN}/zsh/zsh_plugins.txt
+antidote load ${DOTFILES_PATH}/zsh/zsh_plugins.txt
 
 # bun completions
 [ -s "/Users/chase/.bun/_bun" ] && source "/Users/chase/.bun/_bun"
