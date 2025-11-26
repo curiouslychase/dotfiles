@@ -10,6 +10,7 @@ init:
 	test -L $(HOME)/.tmux.conf || ln -s $(PWD)/tmux/tmux.conf $(HOME)/.tmux.conf
 	test -d $(HOME)/.tmux/plugins/tmux-which-key || mkdir -p $(HOME)/.tmux/plugins/tmux-which-key
 	test -L $(HOME)/.tmux/plugins/tmux-which-key/config.yaml || ln -s $(PWD)/tmux/which-key-config.yaml $(HOME)/.tmux/plugins/tmux-which-key/config.yaml
+	test -L $(HOME)/.config/tmuxinator || ln -s $(PWD)/tmuxinator $(HOME)/.config/tmuxinator
 	test -d $(HOME)/.config/yazi || mkdir -p $(HOME)/.config/yazi
 	test -L $(HOME)/.config/yazi/yazi.toml || ln -s $(PWD)/yazi.toml $(HOME)/.config/yazi/yazi.toml
 	test -L $(HOME)/.hammerspoon || ln -s $(PWD)/hammerspoon $(HOME)/.hammerspoon
@@ -48,4 +49,5 @@ clean:
 	rm -rf $(HOME)/.config/ghostty
 	rm -rf $(HOME)/.tmux.conf
 	rm -rf $(HOME)/.tmux/plugins/tmux-which-key/config.yaml
+	rm -rf $(HOME)/.config/tmuxinator
 	rm -rf $(HOME)/.config/yazi/yazi.toml
