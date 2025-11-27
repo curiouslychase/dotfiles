@@ -11,6 +11,8 @@ init:
 	test -d $(HOME)/.tmux/plugins/tmux-which-key || mkdir -p $(HOME)/.tmux/plugins/tmux-which-key
 	test -L $(HOME)/.tmux/plugins/tmux-which-key/config.yaml || ln -s $(PWD)/tmux/which-key-config.yaml $(HOME)/.tmux/plugins/tmux-which-key/config.yaml
 	test -L $(HOME)/.config/tmuxinator || ln -s $(PWD)/tmuxinator $(HOME)/.config/tmuxinator
+	test -d $(HOME)/.config/lazygit || mkdir -p $(HOME)/.config/lazygit
+	test -L $(HOME)/.config/lazygit/config.yml || ln -s $(PWD)/lazygit/config.yml $(HOME)/.config/lazygit/config.yml
 	test -d $(HOME)/.config/yazi || mkdir -p $(HOME)/.config/yazi
 	test -L $(HOME)/.config/yazi/yazi.toml || ln -s $(PWD)/yazi.toml $(HOME)/.config/yazi/yazi.toml
 	test -L $(HOME)/.hammerspoon || ln -s $(PWD)/hammerspoon $(HOME)/.hammerspoon
@@ -29,6 +31,7 @@ init:
 	test -L $(HOME)/.ssh/config_common || ln -s $(PWD)/ssh/config_common $(HOME)/.ssh/config_common
 	test -L $(HOME)/.gitconfig || ln -s $(PWD)/gitconfig $(HOME)/.gitconfig
 	test -L $(HOME)/.emacs.d || ln -s $(PWD)/emacs.d $(HOME)/.emacs.d
+	$(PWD)/scripts/setup-aicommit2
 
 clone:
 	git clone https://github.com/curiouslychase/dotfiles.git $(HOME)/src/github.com/curiouslychase/dotfiles
@@ -51,3 +54,4 @@ clean:
 	rm -rf $(HOME)/.tmux/plugins/tmux-which-key/config.yaml
 	rm -rf $(HOME)/.config/tmuxinator
 	rm -rf $(HOME)/.config/yazi/yazi.toml
+	rm -rf $(HOME)/.config/lazygit/config.yml
