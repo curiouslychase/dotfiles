@@ -1,16 +1,6 @@
 customCommands:
-  - key: <c-a>
-    description: AI commit
-    command: "git commit --edit"
-    context: files
-    output: terminal
-  - key: <c-c>
-    description: AI commit to clipboard
-    command: aicommit2 --clipboard --auto-select
-    context: files
-    output: terminal
-  - key: <c-n>
-    description: AI commit to clipboard (no verify)
-    command: aicommit2 --clipboard --auto-select --no-verify
+  - key: <c-g>
+    description: Generate AI message (copies to clipboard)
+    command: aicommit2 --clipboard --auto-select && echo "✓ Commit message copied! Press 'c' then paste"
     context: files
     output: terminal
