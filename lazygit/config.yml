@@ -1,4 +1,9 @@
 customCommands:
+  - key: <c-c>
+    description: AI commit (subprocess)
+    command: git commit
+    context: files
+    subprocess: true
   - key: <c-g>
     description: Generate AI message (copies to clipboard)
     command: aicommit2 --clipboard --auto-select && echo "✓ Commit message copied! Press 'c' then paste"
