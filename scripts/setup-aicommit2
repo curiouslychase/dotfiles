@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Configure aicommit2 to use Ollama with mistral:7b
+
+set -e
+
+echo "Configuring aicommit2 for Ollama..."
+
+# Configure Ollama provider
+aicommit2 config set \
+  OLLAMA.model=mistral:7b \
+  OLLAMA.host=http://localhost:11434 \
+  OLLAMA.numCtx=4096 \
+  OLLAMA.temperature=0.7 \
+  OLLAMA.maxTokens=100 \
+  OLLAMA.generate=3 \
+  type=conventional
+
+# Disable other providers
+aicommit2 config set OPENAI.disabled=true
+
+echo "✓ aicommit2 configured for Ollama (mistral:7b)"
