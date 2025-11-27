@@ -1,6 +1,7 @@
 tap "oven-sh/bun" # bun
 tap "supabase/tap"
 
+brew "aicommit2"
 brew "antidote" # zsh plugin manager
 brew "bun"
 brew "caddy"
