@@ -1,11 +1,16 @@
 customCommands:
   - key: <c-a>
-    description: Pick AI commit
-    command: aicommit2
+    description: AI commit
+    command: "git commit --edit"
+    context: files
+    output: terminal
+  - key: <c-c>
+    description: AI commit to clipboard
+    command: aicommit2 --clipboard --auto-select
     context: files
     output: terminal
   - key: <c-n>
-    description: Pick AI commit (no verify)
-    command: aicommit2 --no-verify
+    description: AI commit to clipboard (no verify)
+    command: aicommit2 --clipboard --auto-select --no-verify
     context: files
     output: terminal
