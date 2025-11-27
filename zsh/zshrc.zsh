@@ -10,6 +10,7 @@ NX_TUI=false
 HISTSIZE=10000
 SAVEHIST=10000
 
+export XDG_CONFIG_HOME="$HOME/.config"
 export GOPATH=$HOME
 export WRK_PATH="$GOPATH/src"
 export GH_PATH="$WRK_PATH/github.com"
