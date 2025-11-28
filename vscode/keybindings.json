@@ -20,9 +20,34 @@
     "when": ""
   },
   {
-    "key": "cmd+b",
-    "command": "-markdown.extension.editing.toggleBold",
+    "key": "cmd+i",
+    "command": "-markdown.extension.editing.toggleItalic",
     "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
+  },
+  {
+    "key": "cmd+shift+]",
+    "command": "-markdown.extension.editing.toggleHeadingUp",
+    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
+  },
+  {
+    "key": "cmd+shift+[",
+    "command": "-markdown.extension.editing.toggleHeadingDown",
+    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+shift+]",
+    "command": "-markdown.extension.editing.toggleCodeBlock",
+    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
+  },
+  {
+    "key": "cmd+k v",
+    "command": "-markdown.showPreviewToSide",
+    "when": "!notebookEditorFocused && editorLangId == 'markdown'"
+  },
+  {
+    "key": "alt+c",
+    "command": "-markdown.extension.checkTaskList",
+    "when": "editorTextFocus && editorLangId == 'markdown'"
   },
   {
     "key": "ctrl+r",
@@ -40,5 +65,10 @@
   {
     "key": "cmd+space",
     "command": "whichkey.show"
+  },
+  {
+    "key": "cmd+b",
+    "command": "-markdown.extension.editing.toggleBold",
+    "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
   }
 ]
