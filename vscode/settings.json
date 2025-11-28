@@ -208,9 +208,9 @@
     },
     {
       "keys": "g.s",
-      "name": "Source Control",
+      "name": "Lazygit",
       "type": "command",
-      "command": "workbench.view.scm"
+      "command": "lazygit.openLazygit"
     },
     {
       "keys": "w.S",
