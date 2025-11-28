@@ -31,7 +31,8 @@ init:
 	test -L $(HOME)/.ssh/config_common || ln -s $(PWD)/ssh/config_common $(HOME)/.ssh/config_common
 	test -L $(HOME)/.gitconfig || ln -s $(PWD)/gitconfig $(HOME)/.gitconfig
 	test -L $(HOME)/.emacs.d || ln -s $(PWD)/emacs.d $(HOME)/.emacs.d
-	$(PWD)/scripts/setup-aicommit2
+	test -d $(HOME)/.config/aicommit2 || mkdir -p $(HOME)/.config/aicommit2
+	test -L $(HOME)/.config/aicommit2/config.ini || ln -s $(PWD)/aicommit2/config.ini $(HOME)/.config/aicommit2/config.ini
 
 clone:
 	git clone https://github.com/curiouslychase/dotfiles.git $(HOME)/src/github.com/curiouslychase/dotfiles
@@ -55,3 +56,4 @@ clean:
 	rm -rf $(HOME)/.config/tmuxinator
 	rm -rf $(HOME)/.config/yazi/yazi.toml
 	rm -rf $(HOME)/.config/lazygit/config.yml
+	rm -rf $(HOME)/.config/aicommit2/config.ini
