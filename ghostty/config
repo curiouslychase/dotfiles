@@ -1,4 +1,3 @@
-#theme = dark:Catppuccin Mocha,light:Catppuccin Latte
 theme = Catppuccin Mocha
 
 adjust-cell-height = 0%
