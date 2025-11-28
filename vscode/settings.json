@@ -1,6 +1,6 @@
 {
   "editor.fontFamily": "'JetBrains Mono', Hack, 'Fira Mono', Menlo, Monaco, 'Courier New', monospace",
-  "window.title": "${activeEditorLong}",
+  "window.title": "${rootName}${separator}${activeEditorMedium}",
   "git.autofetch": true,
   // open JSON editor instead of visual picker
   "workbench.settings.editor": "json",
