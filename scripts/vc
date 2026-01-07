@@ -1,1 +1,316 @@
-/Users/chaseadams/src/github.com/curiouslychase/dotfiles/scripts/vault-create
+#!/usr/bin/env bash
+set -eo pipefail
+
+# Configuration
+VAULT_PATH="${VAULT_PATH:-$HOME/vaults/vault}"
+TEMPLATES_PATH="$VAULT_PATH/000 OS/Templates"
+
+# Temp file for storing field values
+FIELDS_FILE=$(mktemp)
+trap 'rm -f "$FIELDS_FILE"' EXIT
+
+# Entity type to destination folder mapping
+get_entity_folder() {
+  case "$1" in
+    "Area") echo "300 Entities/Areas" ;;
+    "Book") echo "400 Resources/Books" ;;
+    "Event") echo "300 Entities/Events" ;;
+    "Goal") echo "300 Entities/Goals" ;;
+    "Person") echo "300 Entities/People" ;;
+    "Podcast Episode") echo "400 Resources/Podcasts" ;;
+    "Project") echo "300 Entities/Projects" ;;
+    "Quote") echo "200 Notes" ;;
+    "Software") echo "300 Entities/Software" ;;
+    "Team") echo "300 Entities/Teams" ;;
+    "Web") echo "400 Resources/Web" ;;
+    "Writing") echo "199 Writing" ;;
+    *) echo "200 Notes" ;;
+  esac
+}
+
+# Store/retrieve field values using temp file
+set_field() {
+  local key="$1" value="$2"
+  # Remove existing entry and add new one
+  grep -v "^${key}=" "$FIELDS_FILE" > "$FIELDS_FILE.tmp" 2>/dev/null || true
+  mv "$FIELDS_FILE.tmp" "$FIELDS_FILE"
+  printf '%s=%s\n' "$key" "$value" >> "$FIELDS_FILE"
+}
+
+get_field() {
+  local key="$1"
+  grep "^${key}=" "$FIELDS_FILE" 2>/dev/null | head -1 | cut -d= -f2-
+}
+
+# Check for gum
+has_gum() {
+  command -v gum &>/dev/null
+}
+
+# Prompt for input
+prompt_input() {
+  local label="$1"
+  local default="${2:-}"
+
+  if has_gum; then
+    if [[ -n "$default" ]]; then
+      gum input --placeholder "$label" --value "$default"
+    else
+      gum input --placeholder "$label"
+    fi
+  else
+    local value
+    if [[ -n "$default" ]]; then
+      read -rp "$label [$default]: " value </dev/tty
+      echo "${value:-$default}"
+    else
+      read -rp "$label: " value </dev/tty
+      echo "$value"
+    fi
+  fi
+}
+
+# Choose from list
+choose_option() {
+  local prompt="$1"
+  shift
+
+  if has_gum; then
+    printf '%s\n' "$@" | gum choose --header "$prompt"
+  else
+    echo "$prompt" >&2
+    PS3="Enter number: "
+    select opt in "$@"; do
+      if [[ -n "$opt" ]]; then
+        echo "$opt"
+        break
+      fi
+    done </dev/tty
+  fi
+}
+
+# Get available templates (excluding periodic notes)
+get_entity_templates() {
+  find "$TEMPLATES_PATH" -maxdepth 1 -name "*.md" -exec basename {} .md \; 2>/dev/null | \
+    grep -Ev "^(Daily|Weekly|Monthly|Quarterly)$" | \
+    sort
+}
+
+# Parse frontmatter fields from template
+parse_frontmatter_fields() {
+  local template_file="$1"
+
+  awk '
+    BEGIN { in_fm=0 }
+    /^---$/ { if (in_fm) exit; in_fm=1; next }
+    in_fm && /^[a-z_]+:/ {
+      # Skip nested items
+      if (/^  /) next
+      # Extract field and value
+      split($0, parts, ":")
+      field = parts[1]
+      value = ""
+      for (i=2; i<=length(parts); i++) {
+        value = value (i>2 ? ":" : "") parts[i]
+      }
+      gsub(/^[ \t]+|[ \t]+$/, "", value)
+      print field "|" value
+    }
+  ' "$template_file"
+}
+
+# Generate filename based on entity type
+generate_filename() {
+  local entity_type="$1"
+  local title="$2"
+
+  case "$entity_type" in
+    "Web")
+      echo "$(date +%Y%m%d) ${title}.md"
+      ;;
+    "Event")
+      local d
+      d=$(get_field "start_date")
+      [[ -z "$d" ]] && d=$(get_field "date")
+      if [[ -n "$d" ]]; then
+        echo "${title} (${d}).md"
+      else
+        echo "${title}.md"
+      fi
+      ;;
+    *)
+      echo "${title}.md"
+      ;;
+  esac
+}
+
+# Main
+main() {
+  echo "Vault Entity Creator"
+  echo "===================="
+  echo ""
+
+  # Get templates into array
+  local templates=()
+  while IFS= read -r t; do
+    [[ -n "$t" ]] && templates+=("$t")
+  done < <(get_entity_templates)
+
+  if [[ ${#templates[@]} -eq 0 ]]; then
+    echo "Error: No templates found in $TEMPLATES_PATH" >&2
+    exit 1
+  fi
+
+  # Choose entity type
+  entity_type=$(choose_option "Select entity type:" "${templates[@]}")
+  echo ""
+  echo "Creating: $entity_type"
+  echo ""
+
+  template_file="$TEMPLATES_PATH/$entity_type.md"
+
+  if [[ ! -f "$template_file" ]]; then
+    echo "Error: Template not found: $template_file" >&2
+    exit 1
+  fi
+
+  # Get title first
+  title=$(prompt_input "Title/Name")
+  if [[ -z "$title" ]]; then
+    echo "Error: Title is required" >&2
+    exit 1
+  fi
+
+  # Parse and prompt for frontmatter fields
+  local fields_order=()
+
+  while IFS='|' read -r field default; do
+    [[ -z "$field" ]] && continue
+    [[ "$field" == "type" ]] && continue
+
+    fields_order+=("$field")
+
+    case "$field" in
+      "saved")
+        set_field "$field" "$(date +%Y-%m-%d)"
+        ;;
+      "tags")
+        local tags_input
+        tags_input=$(prompt_input "tags (comma-separated)")
+        set_field "$field" "$tags_input"
+        ;;
+      "status")
+        if [[ -n "$default" ]]; then
+          set_field "$field" "$default"
+        else
+          local status
+          status=$(choose_option "Status:" "active" "completed" "archived" "someday")
+          set_field "$field" "$status"
+        fi
+        ;;
+      "relationship")
+        local rel
+        rel=$(choose_option "Relationship:" "colleague" "friend" "family" "acquaintance" "mentor" "other")
+        set_field "$field" "$rel"
+        ;;
+      "event_type")
+        local evt
+        evt=$(choose_option "Event type:" "Trip" "Conference" "Workshop" "Meetup" "Other")
+        set_field "$field" "$evt"
+        ;;
+      *)
+        local value
+        value=$(prompt_input "$field" "$default")
+        set_field "$field" "$value"
+        ;;
+    esac
+  done < <(parse_frontmatter_fields "$template_file")
+
+  # Determine destination
+  local dest_folder
+  dest_folder=$(get_entity_folder "$entity_type")
+  local dest_path="$VAULT_PATH/$dest_folder"
+
+  mkdir -p "$dest_path"
+
+  # Generate filename
+  local filename
+  filename=$(generate_filename "$entity_type" "$title")
+  local full_path="$dest_path/$filename"
+
+  # Check if exists
+  if [[ -f "$full_path" ]]; then
+    echo ""
+    echo "Warning: File already exists: $full_path"
+    if has_gum; then
+      gum confirm "Overwrite?" || exit 1
+    else
+      read -rp "Overwrite? (y/N): " confirm </dev/tty
+      [[ "$confirm" != "y" && "$confirm" != "Y" ]] && exit 1
+    fi
+  fi
+
+  # Build frontmatter
+  local frontmatter="---"$'\n'
+  local type_slug
+  type_slug=$(echo "$entity_type" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
+  frontmatter+="type: $type_slug"$'\n'
+
+  for field in "${fields_order[@]}"; do
+    local value
+    value=$(get_field "$field")
+
+    if [[ "$field" == "tags" ]]; then
+      if [[ -z "$value" ]]; then
+        frontmatter+="tags: []"$'\n'
+      else
+        frontmatter+="tags:"$'\n'
+        IFS=',' read -ra tag_arr <<< "$value"
+        for tag in "${tag_arr[@]}"; do
+          tag=$(echo "$tag" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+          frontmatter+="  - $tag"$'\n'
+        done
+      fi
+    else
+      frontmatter+="$field: $value"$'\n'
+    fi
+  done
+
+  frontmatter+="---"$'\n'
+
+  # Get template body
+  local template_body
+  template_body=$(awk '
+    BEGIN { count=0 }
+    /^---$/ { count++; if (count==2) { found=1; next } }
+    found { print }
+  ' "$template_file")
+
+  # Write file
+  {
+    printf '%s\n' "$frontmatter"
+    printf '%s\n' "$template_body"
+  } > "$full_path"
+
+  # Generate Obsidian deep link
+  local vault_name
+  vault_name=$(basename "$VAULT_PATH")
+  local relative_path="${full_path#$VAULT_PATH/}"
+  # URL encode the path (spaces and special chars)
+  local encoded_path
+  encoded_path=$(printf '%s' "$relative_path" | sed 's/ /%20/g; s/(/%28/g; s/)/%29/g')
+  local obsidian_uri="obsidian://open?vault=${vault_name}&file=${encoded_path}"
+
+  echo ""
+  echo "Created: $obsidian_uri"
+
+  # Open in editor?
+  if has_gum; then
+    gum confirm "Open in editor?" && ${EDITOR:-nvim} "$full_path"
+  else
+    read -rp "Open in editor? (y/N): " open_it </dev/tty
+    [[ "$open_it" == "y" || "$open_it" == "Y" ]] && ${EDITOR:-nvim} "$full_path"
+  fi
+}
+
+main "$@"
