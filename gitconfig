@@ -66,8 +66,9 @@
 [user]
 	name = Chase Adams
 	email = sub+github@crca.fyi
+	signingkey = E34C9376A7615B1CA56C30C153613ABE19AC3A66
 [commit]
-    gpgsign = false
+	gpgsign = true
 [gpg]
     program = gpg
 
