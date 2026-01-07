@@ -16,6 +16,7 @@ get_entity_folder() {
     "Book") echo "400 Resources/Books" ;;
     "Event") echo "300 Entities/Events" ;;
     "Goal") echo "300 Entities/Goals" ;;
+    "Meeting") echo "300 Entities/Meetings" ;;
     "Person") echo "300 Entities/People" ;;
     "Podcast Episode") echo "400 Resources/Podcasts" ;;
     "Project") echo "300 Entities/Projects" ;;
