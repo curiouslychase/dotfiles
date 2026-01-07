@@ -126,7 +126,7 @@ generate_filename() {
   local title="$2"
 
   case "$entity_type" in
-    "Web")
+    "Web"|"Meeting")
       echo "$(date +%Y%m%d) ${title}.md"
       ;;
     "Event")
