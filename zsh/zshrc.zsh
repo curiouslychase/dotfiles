@@ -1,5 +1,3 @@
-# Enable zsh profiling (comment out when not needed)
-zmodload zsh/zprof
 
 # Install Antibody (package manager for ZSH):
 # curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
@@ -142,6 +140,3 @@ export PATH="$PATH:/Users/chaseadams/.local/bin"
 export PATH="$PATH:/Users/chaseadams/.lmstudio/bin"
 # End of LM Studio CLI section
 
-# Print zsh profiling results (comment out when not needed)
-zprof
-source /Users/cadams6/.rocket-money-config
