@@ -140,3 +140,6 @@ export PATH="$PATH:/Users/chaseadams/.local/bin"
 export PATH="$PATH:/Users/chaseadams/.lmstudio/bin"
 # End of LM Studio CLI section
 
+
+# Amp CLI
+export PATH="/Users/chaseadams/.amp/bin:$PATH"
