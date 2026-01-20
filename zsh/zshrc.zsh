@@ -6,6 +6,8 @@ if [[ -a ~/.localrc ]]; then
     source ~/.localrc
 fi
 
+export IS_DEMO=1 
+
 NX_TUI=false
 
 HISTSIZE=10000
@@ -139,4 +141,5 @@ export PATH="$PATH:/Users/chaseadams/.local/bin"
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/chaseadams/.lmstudio/bin"
 # End of LM Studio CLI section
+
 
