@@ -1,0 +1,38 @@
+#!/bin/bash
+set -e
+
+SSH_DIR="$HOME/.ssh"
+KEY_PATH="$SSH_DIR/id_rsa_github"
+CONFIG_PATH="$SSH_DIR/config"
+
+mkdir -p "$SSH_DIR"
+chmod 700 "$SSH_DIR"
+
+if [ -f "$KEY_PATH" ]; then
+  echo "Key already exists at $KEY_PATH"
+else
+  ssh-keygen -t ed25519 -f "$KEY_PATH" -N "" -C "github"
+  echo "Created key at $KEY_PATH"
+fi
+
+chmod 600 "$KEY_PATH"
+chmod 644 "$KEY_PATH.pub"
+
+if ! grep -q "Host github.com" "$CONFIG_PATH" 2>/dev/null; then
+  cat >> "$CONFIG_PATH" << 'EOF'
+
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_github
+EOF
+  echo "Added github.com to SSH config"
+else
+  echo "github.com already in SSH config"
+fi
+
+echo ""
+echo "Add this public key to GitHub:"
+echo "https://github.com/settings/ssh/new"
+echo ""
+cat "$KEY_PATH.pub"
