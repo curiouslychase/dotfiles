@@ -8,44 +8,10 @@
       "/Applications/Cursor.app/Contents/Resources/app/bin"
     ]
   },
-  "enabledPlugins": {
-    "document-skills@anthropic-agent-skills": true,
-    "swift-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true
-  },
   "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/chaseadams/.vibecraft/hooks/vibecraft-hook.sh",
-            "timeout": 5
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/chaseadams/.vibecraft/hooks/vibecraft-hook.sh",
-            "timeout": 5
-          }
-        ]
-      }
-    ],
     "Stop": [
       {
         "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/chaseadams/.vibecraft/hooks/vibecraft-hook.sh",
-            "timeout": 5
-          },
           {
             "type": "command",
             "command": "node /Users/chaseadams/.claude/hooks/tts.js"
@@ -53,60 +19,11 @@
         ]
       }
     ],
-    "SubagentStop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/chaseadams/.vibecraft/hooks/vibecraft-hook.sh",
-            "timeout": 5
-          }
-        ]
-      }
-    ],
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/chaseadams/.vibecraft/hooks/vibecraft-hook.sh",
-            "timeout": 5
-          }
-        ]
-      }
-    ],
-    "SessionEnd": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/chaseadams/.vibecraft/hooks/vibecraft-hook.sh",
-            "timeout": 5
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/chaseadams/.vibecraft/hooks/vibecraft-hook.sh",
-            "timeout": 5
-          }
-        ]
-      }
-    ],
-    "Notification": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/chaseadams/.vibecraft/hooks/vibecraft-hook.sh",
-            "timeout": 5
-          }
-        ]
-      }
-    ]
-  }
+  },
+  "enabledPlugins": {
+    "document-skills@anthropic-agent-skills": true,
+    "swift-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true
+  },
+  "model": "opus"
 }
