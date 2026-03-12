@@ -138,7 +138,7 @@ if [ -d "$CLAUDE_DIR/projects/$NEW_ENCODED" ]; then
     SESSION_FILES=$(find "$CLAUDE_DIR/projects/$NEW_ENCODED" -name "*.jsonl" 2>/dev/null)
     if [ -n "$SESSION_FILES" ]; then
         echo "Updating session file references..."
-        find "$CLAUDE_DIR/projects/$NEW_ENCODED" -name "*.jsonl" -exec sed -i '' "s|$OLD_ABS|$NEW_ABS_FUTURE|g" {} \;
+        find "$CLAUDE_DIR/projects/$NEW_ENCODED" -name "*.jsonl" | xargs sed -i "s|$OLD_ABS|$NEW_ABS_FUTURE|g"
         echo "✓ Updated session files"
         echo ""
     fi
@@ -161,6 +161,6 @@ if [ -f "$HISTORY_FILE" ]; then
     echo ""
     echo "Updating history.jsonl references..."
     cp "$HISTORY_FILE" "$HISTORY_FILE.backup"
-    sed -i '' "s|$OLD_ABS|$NEW_ABS|g" "$HISTORY_FILE"
+    sed -i "s|$OLD_ABS|$NEW_ABS|g" "$HISTORY_FILE"
     echo "✓ Updated history.jsonl (backup: history.jsonl.backup)"
 fi
