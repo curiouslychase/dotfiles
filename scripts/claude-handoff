@@ -1,0 +1,52 @@
+#!/bin/bash
+# claude-handoff — Start a new Claude session with context from the previous one
+#
+# Two modes:
+#   1. After /handoff: reads the handoff file written by the command
+#   2. Standalone:     claude-handoff "direction for next thread"
+#      Uses `claude -p --continue` to generate handoff from most recent session
+
+set -e
+
+HANDOFF_FILE="/tmp/claude-handoff.md"
+DIRECTION="$*"
+
+# Check if /handoff already wrote a handoff file (less than 10 min old)
+if [ -f "$HANDOFF_FILE" ]; then
+    AGE=$(( $(date +%s) - $(stat -f %m "$HANDOFF_FILE") ))
+    if [ "$AGE" -lt 600 ]; then
+        echo "Found handoff from /handoff command. Starting new session..."
+        PROMPT="$(cat "$HANDOFF_FILE")"
+        rm -f "$HANDOFF_FILE"
+        exec claude "$PROMPT"
+    fi
+fi
+
+# Standalone mode: generate handoff from most recent session
+if [ -z "$DIRECTION" ]; then
+    DIRECTION="Continue where the previous thread left off."
+fi
+
+echo "Generating handoff from most recent session..."
+
+PROMPT=$(claude -p --continue "You are creating a handoff — continuing work from this thread in a new, fresh thread.
+
+Analyze the FULL conversation and generate a handoff prompt. Include:
+- Task summary (one line)
+- Direction for new thread: $DIRECTION
+- All files read, created, or modified (exact paths)
+- Key decisions and reasoning
+- Current state: what's done, what's remaining
+- Gotchas, constraints, important context
+- Actionable next steps referencing specific files and line numbers
+
+Output ONLY the handoff prompt. No preamble, no wrapping." 2>/dev/null)
+
+if [ -z "$PROMPT" ]; then
+    echo "Error: Failed to generate handoff. Is there a recent session in this directory?"
+    exit 1
+fi
+
+echo "Starting new session..."
+echo ""
+exec claude "$PROMPT"

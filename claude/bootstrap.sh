@@ -36,6 +36,7 @@ symlink "$DOTFILES_CLAUDE/settings.json" "$CLAUDE_HOME/settings.json"
 
 # Commands
 symlink "$DOTFILES_CLAUDE/commands/tweet.md" "$CLAUDE_HOME/commands/tweet.md"
+symlink "$DOTFILES_CLAUDE/commands/handoff.md" "$CLAUDE_HOME/commands/handoff.md"
 
 # Skills
 symlink "$DOTFILES_CLAUDE/skills/article-coauthor.md" "$CLAUDE_HOME/skills/article-coauthor.md"
