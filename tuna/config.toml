@@ -1,0 +1,51 @@
+schemaVersion = 1
+
+[catalogs]
+disabledIdentifiers = [
+    'Tuna.Internal.ApplicationProxyCatalog',
+    'TunaAutomation.QuickActionsCatalog',
+    'TunaAutomation.ScriptsCatalog',
+    'TunaAutomation.ShortcutsCatalog',
+    'TunaContacts.ContactsCatalog',
+    'TunaCore.RecentsCatalog',
+    'TunaCore.RecentsSearchCatalog',
+    'TunaCore.RunningProcessesCatalog',
+    'TunaCore.TextActionsCatalog',
+    'TunaDevices.DevicesCatalog',
+    'TunaEmoji.EmojiCatalog',
+    'TunaNotes.NotesSearchCatalog',
+    'TunaObsidian.ObsidianNotesCatalog',
+    'TunaObsidian.ObsidianSearchCatalog',
+    'TunaObsidian.ObsidianVaultsCatalog',
+    'TunaReminders.RemindersSearchCatalog',
+    'TunaSafari.SafariActionsCatalog',
+    'TunaSafari.SafariBookmarksCatalog',
+    'TunaSafari.SafariBookmarksSearchCatalog',
+    'TunaSafari.SafariFavoritesCatalog',
+    'TunaSafari.SafariFavoritesSearchCatalog',
+    'TunaSafari.SafariMetaCatalog',
+    'TunaSafari.SafariReadingListCatalog',
+    'TunaSafari.SafariReadingListSearchCatalog',
+    'TunaSmartLinks.SmartLinksActionsCatalog',
+    'TunaSmartLinks.SmartLinksCatalog',
+    'TunaSystem.WindowManagementCatalog'
+]
+disabledItemKeys = []
+sortOrders = []
+
+[hotkeys]
+custom = []
+
+    [hotkeys.app.activate]
+    carbonKeyCode = 49
+    carbonModifiers = 6400
+
+    [hotkeys.app.leaderMode]
+    carbonKeyCode = 32
+    carbonModifiers = 6400
+
+[[leaderMode.bindings]]
+children = []
+
+[settings]
+themeIdentifier = 'com.brnbw.tuna.themes.default'
