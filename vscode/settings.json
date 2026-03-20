@@ -15,18 +15,18 @@
     "editor.quickSuggestions": {
       "comments": "off",
       "strings": "off",
-      "other": "off"
+      "other": "off",
     },
     "editor.lineNumbers": "off",
     "editor.formatOnSave": false,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "emmet.includeLanguages": {
-    "nunjucks": "html"
+    "nunjucks": "html",
   },
   "[asciidoc]": {
     "editor.foldingStrategy": "indentation",
-    "editor.lineNumbers": "off"
+    "editor.lineNumbers": "off",
   },
   "flow.stopFlowOnExit": false,
   "flow.enabled": true,
@@ -38,18 +38,18 @@
   "todohighlight.isCaseSensitive": true,
   "todohighlight.defaultStyle": {
     "color": "#FF8E8E",
-    "backgroundColor": "#20242D"
+    "backgroundColor": "#20242D",
   },
   "todohighlight.keywords": [
     {
-      "text": "FIXME"
+      "text": "FIXME",
     },
     {
-      "text": "TODO"
+      "text": "TODO",
     },
     {
-      "text": "HACK"
-    }
+      "text": "HACK",
+    },
   ],
   "window.autoDetectColorScheme": true,
   "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
@@ -57,82 +57,82 @@
     ".css": "postcss",
     "Brewfile": "ruby",
     "*.alfredappearance": "json",
-    ".md": "mdx"
+    ".md": "mdx",
   },
   "vim.hlsearch": true,
   "vim.leader": "<space>",
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "j"],
-      "after": ["<Esc>"]
-    }
+      "after": ["<Esc>"],
+    },
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<space>"],
-      "commands": ["whichkey.show"]
-    }
+      "commands": ["whichkey.show"],
+    },
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": ["<space>"],
-      "commands": ["whichkey.show"]
-    }
+      "commands": ["whichkey.show"],
+    },
   ],
   "whichkey.bindingOverrides": [
     {
       "keys": "p.p",
       "name": "Switch Projects",
       "type": "command",
-      "command": "projectManager.listProjects"
+      "command": "projectManager.listProjects",
     },
     {
       "keys": "l",
       "name": "+LSP",
       "type": "object",
-      "bindings": []
+      "bindings": [],
     },
     {
       "keys": "l.p",
       "name": "+Peek",
       "type": "object",
-      "bindings": []
+      "bindings": [],
     },
     {
       "keys": "l.p.i",
       "name": "Peek Implementation",
       "type": "command",
-      "command": "editor.action.peekImplementation"
+      "command": "editor.action.peekImplementation",
     },
     {
       "keys": "l.p.d",
       "name": "Peek Definition",
       "type": "command",
-      "command": "editor.action.peekDefinition"
+      "command": "editor.action.peekDefinition",
     },
     {
       "keys": "l.g",
       "name": "+Goto",
       "type": "object",
-      "bindings": []
+      "bindings": [],
     },
     {
       "keys": "l.g.d",
       "name": "Go to Definition",
       "type": "command",
-      "command": "editor.action.revealDefinition"
+      "command": "editor.action.revealDefinition",
     },
     {
       "keys": "r",
       "name": "+Refactor",
       "type": "object",
-      "bindings": []
+      "bindings": [],
     },
     {
       "keys": "r.r",
       "name": "Rename",
       "type": "command",
-      "command": "editor.action.rename"
+      "command": "editor.action.rename",
     },
     {
       "keys": "r.m",
@@ -140,32 +140,32 @@
       "type": "command",
       "command": "editor.action.codeAction",
       "args": {
-        "kind": "refactor.extract.function"
-      }
+        "kind": "refactor.extract.function",
+      },
     },
     {
       "keys": "a",
       "name": "+AI",
       "type": "object",
-      "bindings": []
+      "bindings": [],
     },
     {
       "keys": "a.c",
       "name": "Claude Code",
       "type": "command",
-      "command": "multiCommand.claudeWorktreeEditor"
+      "command": "multiCommand.claudeWorktreeEditor",
     },
     {
       "keys": "a.o",
       "name": "Codex",
       "type": "command",
-      "command": "multiCommand.codexWorktreeEditor"
+      "command": "multiCommand.codexWorktreeEditor",
     },
     {
       "keys": "a.a",
       "name": "Amp Agent",
       "type": "command",
-      "command": "multiCommand.ampWorktreeEditor"
+      "command": "multiCommand.ampWorktreeEditor",
     },
     {
       "keys": "a.m",
@@ -173,57 +173,57 @@
       "type": "command",
       "command": "workbench.action.terminal.sendSequence",
       "args": {
-        "text": "ai-sessions\n"
-      }
+        "text": "ai-sessions\n",
+      },
     },
     {
       "keys": "g.w",
       "name": "+Worktrees",
       "type": "object",
-      "bindings": []
+      "bindings": [],
     },
     {
       "keys": "g.w.l",
       "name": "List Worktrees",
       "type": "command",
-      "command": "git-worktrees.worktree.list"
+      "command": "git-worktrees.worktree.list",
     },
     {
       "keys": "g.w.c",
       "name": "Create Worktree",
       "type": "command",
-      "command": "git-worktrees.worktree.add"
+      "command": "git-worktrees.worktree.add",
     },
     {
       "keys": "g.w.d",
       "name": "Delete Worktree",
       "type": "command",
-      "command": "git-worktrees.worktree.remove"
+      "command": "git-worktrees.worktree.remove",
     },
     {
       "keys": "g.w.o",
       "name": "Open Worktree",
       "type": "command",
-      "command": "git-worktrees.worktree.list"
+      "command": "git-worktrees.worktree.list",
     },
     {
       "keys": "g.s",
       "name": "Lazygit",
       "type": "command",
-      "command": "lazygit.openLazygit"
+      "command": "lazygit.openLazygit",
     },
     {
       "keys": "w.S",
       "name": "Switch Window",
       "type": "command",
-      "command": "workbench.action.switchWindow"
+      "command": "workbench.action.switchWindow",
     },
     {
       "keys": "e",
       "name": "Files Explorer",
       "type": "command",
-      "command": "workbench.files.action.focusFilesExplorer"
-    }
+      "command": "workbench.files.action.focusFilesExplorer",
+    },
   ],
   "vim.easymotion": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
@@ -233,34 +233,34 @@
   "editor.minimap.enabled": false,
   "workbench.editor.showIcons": false,
   "[javascript]": {
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll.eslint": "explicit",
   },
   "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "rust.clippy_preference": "on",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "workbench.startupEditor": "newUntitledFile",
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "biomejs.biome",
   },
   "[typescript]": {
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "biomejs.biome",
   },
   "[javascriptreact]": {
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "biomejs.biome",
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "diffEditor.ignoreTrimWhitespace": false,
   "cSpell.userWords": [
@@ -274,10 +274,10 @@
     "Strikethrough",
     "typegoose",
     "ulids",
-    "upsert"
+    "upsert",
   ],
   "[nunjucks]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "editor.cursorStyle": "line",
   "editor.insertSpaces": false,
@@ -287,7 +287,7 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
   "gitlens.advanced.messages": {
-    "suppressLineUncommittedWarning": true
+    "suppressLineUncommittedWarning": true,
   },
   /* DEMO/Screencast settings */
   // "window.zoomLevel": 2,
@@ -302,7 +302,7 @@
   "scss.validate": false,
   "stylelint.enable": true,
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "workbench.colorTheme": "Catppuccin Latte",
   "terminal.integrated.defaultProfile.osx": "zsh",
@@ -310,51 +310,51 @@
     "bash": {
       "path": "bash",
       "args": ["-l"],
-      "icon": "terminal-bash"
+      "icon": "terminal-bash",
     },
     "zsh": {
       "path": "zsh",
-      "args": ["-l"]
+      "args": ["-l"],
     },
     "fish": {
       "path": "fish",
-      "args": ["-l"]
+      "args": ["-l"],
     },
     "tmux": {
       "path": "tmux",
-      "icon": "terminal-tmux"
+      "icon": "terminal-tmux",
     },
     "pwsh": {
       "path": "pwsh",
-      "icon": "terminal-powershell"
+      "icon": "terminal-powershell",
     },
     "claude": {
       "path": "claude",
-      "icon": "robot"
+      "icon": "robot",
     },
     "amp": {
       "path": "amp",
-      "icon": "zap"
+      "icon": "zap",
     },
     "codex": {
       "path": "codex",
-      "icon": "code"
-    }
+      "icon": "code",
+    },
   },
   "security.workspace.trust.untrustedFiles": "open",
   "githubPullRequests.pullBranch": "never",
   "[nginx]": {
-    "editor.defaultFormatter": "raynigon.nginx-formatter"
+    "editor.defaultFormatter": "raynigon.nginx-formatter",
   },
   "caddyfile.executable": "/usr/local/bin/caddy",
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "update.showReleaseNotes": false,
   "editor.inlineSuggest.enabled": true,
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
   "githubPullRequests.terminalLinksHandler": "github",
   "git.confirmSync": false,
@@ -362,7 +362,7 @@
     "*": true,
     "plaintext": false,
     "markdown": false,
-    "scminput": false
+    "scminput": false,
   },
   "editor.largeFileOptimizations": false,
   "editor.accessibilitySupport": "off",
@@ -390,27 +390,27 @@
       "tool": "Bash",
       "action": "ask",
       "matches": {
-        "cmd": "*git*push*"
-      }
+        "cmd": "*git*push*",
+      },
     },
     {
       "tool": "mcp__*",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "read_mcp_resource",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "tb__*",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Bash",
       "matches": {
-        "cmd": "/^(.*\\s+)?(bazel|ibazel)\\s+.*\\/\\/[^\\s]*.*$/"
+        "cmd": "/^(.*\\s+)?(bazel|ibazel)\\s+.*\\/\\/[^\\s]*.*$/",
       },
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Bash",
@@ -536,10 +536,10 @@
           "git --version",
           "git --help",
           "git help *",
-          "git version"
-        ]
+          "git version",
+        ],
       },
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Bash",
@@ -602,10 +602,10 @@
           "git rev-parse --is-inside-work-tree *",
           "git rev-parse --show-toplevel *",
           "git config --list *",
-          "git log *"
-        ]
+          "git log *",
+        ],
       },
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Bash",
@@ -625,10 +625,10 @@
           "./node_modules/.bin/vite *",
           "bun *",
           "tsx *",
-          "vite *"
-        ]
+          "vite *",
+        ],
       },
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Bash",
@@ -645,10 +645,10 @@
           "uv *",
           "poetry show *",
           "poetry check *",
-          "pipenv check *"
-        ]
+          "pipenv check *",
+        ],
       },
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Bash",
@@ -666,10 +666,10 @@
           "rbenv which *",
           "nvm list *",
           "nvm current *",
-          "nvm which *"
-        ]
+          "nvm which *",
+        ],
       },
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Bash",
@@ -693,10 +693,10 @@
           "bandit *",
           "safety *",
           "biome check *",
-          "biome format *"
-        ]
+          "biome format *",
+        ],
       },
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Bash",
@@ -710,10 +710,10 @@
           "django-admin runserver *",
           "python manage.py runserver *",
           "uvicorn *",
-          "streamlit run *"
-        ]
+          "streamlit run *",
+        ],
       },
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Bash",
@@ -727,10 +727,10 @@
           "alembic current *",
           "alembic history *",
           "bundle exec rails db:status",
-          "bundle exec rails db:version"
-        ]
+          "bundle exec rails db:version",
+        ],
       },
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Bash",
@@ -748,10 +748,10 @@
           "podman images *",
           "podman logs *",
           "podman inspect *",
-          "podman info *"
-        ]
+          "podman info *",
+        ],
       },
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Bash",
@@ -772,10 +772,10 @@
           "kubectl version *",
           "helm list *",
           "helm status *",
-          "helm version *"
-        ]
+          "helm version *",
+        ],
       },
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Bash",
@@ -799,10 +799,10 @@
           "mix *",
           "lua *",
           "ruby *",
-          "php *"
-        ]
+          "php *",
+        ],
       },
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Bash",
@@ -812,10 +812,10 @@
           "chmod +x *",
           "dos2unix *",
           "unix2dos *",
-          "ln -s *"
-        ]
+          "ln -s *",
+        ],
       },
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Bash",
@@ -839,195 +839,195 @@
           "{ *",
           "} *",
           "[[ *",
-          "]] *"
-        ]
+          "]] *",
+        ],
       },
-      "action": "ask"
+      "action": "ask",
     },
     {
       "tool": "Bash",
       "matches": {
-        "cmd": "/^find(?!.*(-delete|-exec|-execdir)).*$/"
+        "cmd": "/^find(?!.*(-delete|-exec|-execdir)).*$/",
       },
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Bash",
       "matches": {
-        "cmd": "/^(echo|ls|pwd|date|whoami|id|uname)\\s.*[&|;].*\\s*(echo|ls|pwd|date|whoami|id|uname)($|\\s.*)/"
+        "cmd": "/^(echo|ls|pwd|date|whoami|id|uname)\\s.*[&|;].*\\s*(echo|ls|pwd|date|whoami|id|uname)($|\\s.*)/",
       },
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Bash",
       "matches": {
-        "cmd": "/^(cat|grep|head|tail|less|more|find)\\s.*\\|\\s*(grep|head|tail|less|more|wc|sort|uniq)($|\\s.*)/"
+        "cmd": "/^(cat|grep|head|tail|less|more|find)\\s.*\\|\\s*(grep|head|tail|less|more|wc|sort|uniq)($|\\s.*)/",
       },
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Bash",
       "matches": {
-        "cmd": "/^rm\\s+.*(-[rf].*-[rf]|-[rf]{2,}|--recursive.*--force|--force.*--recursive).*$/"
+        "cmd": "/^rm\\s+.*(-[rf].*-[rf]|-[rf]{2,}|--recursive.*--force|--force.*--recursive).*$/",
       },
-      "action": "ask"
+      "action": "ask",
     },
     {
       "tool": "Bash",
       "matches": {
-        "cmd": "/^find.*(-delete|-exec|-execdir).*$/"
+        "cmd": "/^find.*(-delete|-exec|-execdir).*$/",
       },
-      "action": "ask"
+      "action": "ask",
     },
     {
       "tool": "Bash",
       "matches": {
-        "cmd": "/^(ls|cat|grep|head|tail|file|stat)\\s+[^/]*$/"
+        "cmd": "/^(ls|cat|grep|head|tail|file|stat)\\s+[^/]*$/",
       },
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Bash",
       "matches": {
-        "cmd": "/^(?!.*(rm|mv|cp|chmod|chown|sudo|su|dd)\\b).*/dev/(null|zero|stdout|stderr|stdin).*$/"
+        "cmd": "/^(?!.*(rm|mv|cp|chmod|chown|sudo|su|dd)\\b).*/dev/(null|zero|stdout|stderr|stdin).*$/",
       },
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Bash",
       "matches": {
-        "cmd": "/(^|\\s)(\\/(?!dev\\/(null|zero|stdout|stderr|stdin))[^\\s]*|\\.\\.\\/)(?![^\\s]*\\.(log|txt|md|json|yml|yaml)$)/"
+        "cmd": "/(^|\\s)(\\/(?!dev\\/(null|zero|stdout|stderr|stdin))[^\\s]*|\\.\\.\\/)(?![^\\s]*\\.(log|txt|md|json|yml|yaml)$)/",
       },
-      "action": "ask"
+      "action": "ask",
     },
     {
       "tool": "Bash",
-      "action": "ask"
+      "action": "ask",
     },
     {
       "tool": "Glob",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Task",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "chat_llm",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "finder",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "fast_finder",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "xai_finder",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "kimiK2_finder",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "gossip_finder",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "sonoma_finder",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "get_diagnostics",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Bash",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "oracle",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "mermaid",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "todo_read",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "todo_write",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "read_web_page",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "run_javascript",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "create_file",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "glob",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Glob",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "undo_edit",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Read",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "edit_file",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "format_file",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "web_search",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Grep",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "search_documents",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "get_document",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "Check",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "code_review",
-      "action": "allow"
+      "action": "allow",
     },
     {
       "tool": "librarian",
-      "action": "allow"
-    }
+      "action": "allow",
+    },
   ],
   "claudeCode.useTerminal": true,
   "gitlens.worktrees.defaultLocation": "worktrees",
@@ -1035,7 +1035,7 @@
   "terminal.integrated.enableVisualBell": true,
   "accessibility.signals.terminalBell": {
     "announcement": "auto",
-    "sound": "on"
+    "sound": "on",
   },
   "multiCommand.commands": [
     {
@@ -1043,64 +1043,64 @@
       "sequence": [
         {
           "command": "workbench.action.tasks.runTask",
-          "args": "Claude Worktree Session"
+          "args": "Claude Worktree Session",
         },
         {
-          "command": "workbench.action.terminal.focus"
+          "command": "workbench.action.terminal.focus",
         },
         {
-          "command": "workbench.action.terminal.moveToEditor"
+          "command": "workbench.action.terminal.moveToEditor",
         },
         {
-          "command": "workbench.action.moveEditorToNextGroup"
+          "command": "workbench.action.moveEditorToNextGroup",
         },
         {
-          "command": "workbench.action.focusSecondEditorGroup"
-        }
-      ]
+          "command": "workbench.action.focusSecondEditorGroup",
+        },
+      ],
     },
     {
       "command": "multiCommand.ampWorktreeEditor",
       "sequence": [
         {
           "command": "workbench.action.tasks.runTask",
-          "args": "Amp Worktree Session"
+          "args": "Amp Worktree Session",
         },
         {
-          "command": "workbench.action.terminal.focus"
+          "command": "workbench.action.terminal.focus",
         },
         {
-          "command": "workbench.action.terminal.moveToEditor"
+          "command": "workbench.action.terminal.moveToEditor",
         },
         {
-          "command": "workbench.action.moveEditorToNextGroup"
+          "command": "workbench.action.moveEditorToNextGroup",
         },
         {
-          "command": "workbench.action.focusSecondEditorGroup"
-        }
-      ]
+          "command": "workbench.action.focusSecondEditorGroup",
+        },
+      ],
     },
     {
       "command": "multiCommand.codexWorktreeEditor",
       "sequence": [
         {
           "command": "workbench.action.tasks.runTask",
-          "args": "Codex Worktree Session"
+          "args": "Codex Worktree Session",
         },
         {
-          "command": "workbench.action.terminal.focus"
+          "command": "workbench.action.terminal.focus",
         },
         {
-          "command": "workbench.action.terminal.moveToEditor"
+          "command": "workbench.action.terminal.moveToEditor",
         },
         {
-          "command": "workbench.action.moveEditorToNextGroup"
+          "command": "workbench.action.moveEditorToNextGroup",
         },
         {
-          "command": "workbench.action.focusSecondEditorGroup"
-        }
-      ]
-    }
+          "command": "workbench.action.focusSecondEditorGroup",
+        },
+      ],
+    },
   ],
   "window.commandCenter": true,
   "claudeCode.preferredLocation": "panel",
@@ -1108,5 +1108,6 @@
   "claudeCode.selectedModel": "default",
   "claudeCode.environmentVariables": [],
   "claude.cwd": "${workspaceFolder}",
-  "cursor.inlineDiff.mode": "unified"
+  "cursor.inlineDiff.mode": "unified",
+  "workbench.statusBar.visible": false,
 }
