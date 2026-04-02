@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Toggle TTS globally for all Claude Code sessions
+
+MUTE_FILE="$HOME/.claude/.ignore/tts-off"
+mkdir -p ~/.claude/.ignore
+
+if [ -f "$MUTE_FILE" ]; then
+  rm "$MUTE_FILE"
+  echo "TTS ON"
+else
+  touch "$MUTE_FILE"
+  echo "TTS OFF"
+fi
