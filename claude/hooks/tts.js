@@ -13,12 +13,10 @@ process.stdin.on('end', async () => {
     const sessionId = data.session_id;
     const transcriptPath = data.transcript_path;
 
-    // Check if TTS is muted for this session
-    if (sessionId) {
-      const muteFile = path.join(os.homedir(), '.claude', '.ignore', 'tts', sessionId);
-      if (fs.existsSync(muteFile)) {
-        process.exit(0);
-      }
+    // Check if TTS is globally muted
+    const muteFile = path.join(os.homedir(), '.claude', '.ignore', 'tts-off');
+    if (fs.existsSync(muteFile)) {
+      process.exit(0);
     }
 
     if (!transcriptPath || !fs.existsSync(transcriptPath)) {
