@@ -33,6 +33,14 @@ init:
 	test -L $(HOME)/.emacs.d || ln -s $(PWD)/emacs.d $(HOME)/.emacs.d
 	test -d $(HOME)/.config/aicommit2 || mkdir -p $(HOME)/.config/aicommit2
 	test -L $(HOME)/.config/aicommit2/config.ini || ln -s $(PWD)/aicommit2/config.ini $(HOME)/.config/aicommit2/config.ini
+	test -d $(HOME)/.claude || mkdir -p $(HOME)/.claude
+	test -L $(HOME)/.claude/CLAUDE.md || ln -s $(PWD)/claude/CLAUDE.md $(HOME)/.claude/CLAUDE.md
+	test -L $(HOME)/.claude/mcp.json || ln -s $(PWD)/claude/mcp.json $(HOME)/.claude/mcp.json
+	test -L $(HOME)/.claude/settings.json || ln -s $(PWD)/claude/settings.json $(HOME)/.claude/settings.json
+	test -L $(HOME)/.claude/skills || ln -s $(PWD)/claude/skills $(HOME)/.claude/skills
+	test -L $(HOME)/.claude/commands || ln -s $(PWD)/claude/commands $(HOME)/.claude/commands
+	test -L $(HOME)/.claude/hooks || ln -s $(PWD)/claude/hooks $(HOME)/.claude/hooks
+	test -L $(HOME)/.claude/statusline.sh || ln -s $(PWD)/claude/statusline.sh $(HOME)/.claude/statusline.sh
 
 clone:
 	git clone https://github.com/curiouslychase/dotfiles.git $(HOME)/src/github.com/curiouslychase/dotfiles
@@ -57,3 +65,10 @@ clean:
 	rm -rf $(HOME)/.config/yazi/yazi.toml
 	rm -rf $(HOME)/.config/lazygit/config.yml
 	rm -rf $(HOME)/.config/aicommit2/config.ini
+	rm -rf $(HOME)/.claude/CLAUDE.md
+	rm -rf $(HOME)/.claude/mcp.json
+	rm -rf $(HOME)/.claude/settings.json
+	rm -rf $(HOME)/.claude/skills
+	rm -rf $(HOME)/.claude/commands
+	rm -rf $(HOME)/.claude/hooks
+	rm -rf $(HOME)/.claude/statusline.sh

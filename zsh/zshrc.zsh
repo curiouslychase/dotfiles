@@ -6,7 +6,8 @@ if [[ -a ~/.localrc ]]; then
     source ~/.localrc
 fi
 
-export IS_DEMO=1 
+# claude code
+# export IS_DEMO=1
 
 NX_TUI=false
 

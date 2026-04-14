@@ -232,6 +232,8 @@
   "editor.rulers": [120],
   "editor.minimap.enabled": false,
   "workbench.editor.showIcons": false,
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
